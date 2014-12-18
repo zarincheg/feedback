@@ -1,0 +1,51 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Simple feedback plugin</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+	<div class="example">
+		<h1>Feedback</h1>
+		<div class="tip">Click to the button below</div>
+		<button>Try it!</button>
+	</div>
+
+	<div class="feedback">
+	    <div class="status wait">
+	        <div class="message">Please, wait...</div>
+	    </div>
+	    <div class="status success">
+	        <div class="message">Feedback sent!</div>
+	    </div>
+	    <div class="status fail">
+	        <div class="message">Feedback could not be sent!</div>
+	    </div>
+
+        <div class="header">
+	        <div class="title">Give us your feedback</div>
+	        <div class="close">
+	            <a href="#"><img src="img/close.png" alt="Close"/></a>
+	        </div>
+	    </div>
+
+	    <form action="/feedback" method="post">
+	        <label for="email">E-mail</label>
+	        <input type="text" name="email" value="" />
+	        <label for="feedback-message">Message</label>
+	        <textarea name="message" id="feedback-message" cols="30" rows="10"></textarea>
+	        <input type="submit" value="Send"/>
+	    </form>
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="jquery.feedback.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function () {
+		$('.feedback').feedback({
+			toggle: '.example button'
+		});
+	});
+	</script>
+</body>
+</html>
